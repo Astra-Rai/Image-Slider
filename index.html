@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Image Slider | Meals by Astra Rai</h2>
+<br>
+
+<img name="slide" width="300" height="200"> 
+
+<script>
+
+//variable, starting point for index images
+var i = 0;
+//array that will hold image
+//array that will loop through using an if else statement
+var images = [];
+//variable that will hold time in-between slides of pictures, will be used as in the setTimeout function as a parameter
+var time = 3000;
+
+//set the index of array to the file name of it's picture
+
+images[0] = 'image1.jpg'; 
+images[1] = 'image2.jpg';
+images[2] = 'image3.jpg';
+
+
+//write function that wil chance images
+function changeImg(){
+//target images, using name attribute of <img> element and then grab the source, set this equal to the var i which is zero
+	document.slide.src = images[i];
+	
+//if index number is less than the length of the array, increment index by 1
+	if(i<images.length-1){
+		i++;
+//else go back to the starting point of array, 0th index that hold the image1.jpb file		
+	}else{
+		i = 0; 
+	}
+//setTime will run the changeImg function every 3 seconds, 3000milliseconds, which is held in the time variable
+	setTimeout("changeImg()", time);
+
+}
+
+	window.onload = changeImg;
+
+
+</script>
+
+</body>
+</html> 
+
+
+
+
